@@ -1,12 +1,11 @@
 // src/App.js
 import React, { useState, useEffect } from "react";
-import UserList from "./UserList";
+import UserList from "./components/UserList";
 
 const App = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    // Fetch data from the provided URL
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((response) => response.json())
       .then((data) => setUsers(data))
@@ -14,9 +13,9 @@ const App = () => {
   }, []);
 
   return (
-    <div>
-      <h1>User List</h1>
-      <UserList users={users} />
+    <div className="container mt-4">
+      <h1 className="mb-4">User List</h1>
+      <UserList usersData={users} />
     </div>
   );
 };
